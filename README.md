@@ -15,12 +15,14 @@ To run the arcade, clone and/or open this repository in Visual Studio Code. Run 
 For more information on Visual Studio Code tasks, please refer to the [docs](https://code.visualstudio.com/docs/editor/tasks).
 
 
-## Contributing
-Not a thing. Don't even try. It's perfect how it is.
+## Known Issues
+Please only type choices presented in menus. Due to a bug in Java, invalid inputs will invoke evil.
+
+Also, the games aren't finished. I'll get to it one day.
 
 
 ## Issues
-Report bugs in an [Issue on the GitHub repository](https://www.github.com/frqstbite/allen-arcade/issues). They may be acted upon. Maybe.
+Report bugs in an [Issue on the GitHub repository](https://www.github.com/frqstbite/allen_arcade/issues). They may be acted upon. Maybe.
 
 
 ## License
