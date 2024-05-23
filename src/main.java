@@ -10,10 +10,11 @@ class AllenArcade {
    private static final TextScreen OUT = new TextScreen(WIDTH, HEIGHT);
    
    private static ArcadeGame running = null;
-   private static ArrayList<Class<? extends ArcadeGame>> games = new ArrayList();
+   private static ArrayList<Class<? extends ArcadeGame>> games = new ArrayList<Class<? extends ArcadeGame>>();
 
    public static void main(String[] args) {
-      games.add(Class.forName("ConnectFour"));
+      games.add(games.TicTacToe.class);
+      games.add(games.ConnectFour.class);
 
       while (true) {
          if (running == null) {
@@ -85,7 +86,7 @@ class AllenArcade {
             String before = (selected == c) ? "[" : " ";
             String after = (selected == c) ? "]" : " ";
             
-            choicesText += before + " " + c + " " + after + " -  " + choices[c];
+            choicesText += before + " " + c + " " + after + " -   " + choices[c];
             
             if (c+1 < choices.length) {
                choicesText += "\n";
@@ -110,8 +111,8 @@ class AllenArcade {
                selected = c;
                continue;
             }
-         } catch (Exception e) {
-            errmsg = "not a number!";
+         } catch (InputMismatchException e) {
+            errmsg = "what have you done.\nthis is a java bug idk how to fix it.\nplease enter a number next time.";
          }
 
          errorText = "Invalid choice: " + errmsg;
