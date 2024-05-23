@@ -6,7 +6,7 @@
 			"detail": "Deletes build files and whatnot",
 			"type": "shell",
 			"windows": {
-				"command": "powershell ${workspaceFolder}\\scripts\\clean.ps1",
+				"command": "powershell -command \\\"if (Test-Path '..bin') { Remove-Item '..bin' -Recurse -Force -Confirm:$false }; if (Test-Path '..sources.txt') { Remove-Item '..sources.txt' -Force }\\\"",
 			},
 		},
 		{
@@ -19,7 +19,7 @@
 				"isDefault": true
 			},
 			"windows": {
-				"command": "powershell ${workspaceFolder}/scripts/compile.ps1"
+				"command": "powershell -command \\\"Get-ChildItem -Recurse -Name -Filter '*.java' | Out-File 'sources.txt' -Encoding Ascii; javac '@sources.txt' -d '../bin' -g\\\""
 			},
 		},
 		{
@@ -27,7 +27,7 @@
 			"detail": "Run compiled Java application",
 			"type": "shell",
 			"windows": {
-				"command": "powershell ${workspaceFolder}\\run.ps1",
+				"command": "powershell -command \\\"java -cp '../bin' AllenArcade\\\"",
 			},
 			"problemMatcher": []
 		}
